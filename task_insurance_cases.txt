@@ -1,0 +1,35 @@
+Task to do.
+
+Before doing this task you will need to install Microsoft SQL Server 2019 Express. 
+You have to create two databases- Source db and Dest db. Afterwards you should 
+execute two scripts containing source data to feed Source database. Second script 
+contains dml for Dest database.
+
+Description
+Create a script to migrate data from Source db to Dest db. Source database contains 
+data from medium sized law firm from Mexico. Both databases store data about legal
+cases in tables: cases and CaseTable. Source db stores list of documents in table:
+case_document_list and each document is described by using the following attributes: 
+Date Added, Category, Notes, File Path. Glossary is in user_doc_fields.
+
+Above mentioned script should migrate data in the following categories:
+-correspondence
+-medical request
+-notice letters
+-settlement negotiations
+->to Dest db ->to table Correspondence.
+
+Here you can find maping 
+Dest------------------Source
+Description-----------Notes
+Data------------------Date Added
+Link------------------File Path
+
+Cases in both databases are referenced one to each other
+with alt_case_num in Source db and [File #] in Dest db.
+In Dest db paths to files are in the following format:
+<file_name>#<full_file_path>
+e.g  c:\test.pdf path will be: Test.pdf#c:\test.pdf
+
+The script you should prepare shouldn't duplicate data during subsequent executions.
+Good luck and regards from Italy :) Francesco
